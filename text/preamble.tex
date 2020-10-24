@@ -1,0 +1,188 @@
+% Тип документа
+\documentclass[a4paper,12pt]{extarticle}
+
+% Шрифты, кодировки, символьные таблицы, переносы
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[table]{xcolor}
+% Это пакет -- хитрый пакет, он нужен но не нужен
+\usepackage[mode=buildnew]{standalone}
+
+\usepackage
+	{
+		% Дополнения Американского математического общества (AMS)
+		amssymb,
+		amsfonts,
+		amsmath,
+		amsthm,
+		physics,
+		% misccorr,
+		% 
+		% Графики и рисунки
+		wrapfig,
+		graphicx,
+		subcaption,
+		float,
+		tikz,
+		tikz-3dplot,
+		caption,
+		csvsimple,
+		color,
+		booktabs,
+		pgfplots,
+		pgfplotstable,
+		geometry,
+		% 
+		% Таблицы, списки
+		array,
+		makecell,
+		multirow,
+		indentfirst,
+		%
+		% Интегралы и прочие обозначения
+		ulem,
+		esint,
+		esdiff,
+		% 
+		% Колонтитулы
+		fancyhdr,
+	}  
+
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+ % Цвета для гиперссылок
+\definecolor{linkcolor}{HTML}{000000} % цвет ссылок
+\definecolor{urlcolor}{HTML}{799B03} % цвет гиперссылок
+ 
+\hypersetup{pdfstartview=FitH,  linkcolor=linkcolor,urlcolor=urlcolor, colorlinks=true}
+% Обводка текста в TikZ
+\usepackage[outline]{contour}
+
+% Увеличенный межстрочный интервал, французские пробелы
+\linespread{1.1} 
+\frenchspacing 
+
+ 
+\usetikzlibrary
+	{
+		decorations.pathreplacing,
+		decorations.pathmorphing,
+		patterns,
+		calc,
+		scopes,
+		arrows,
+		fadings,
+		through,
+		shapes.misc,
+		arrows.meta,
+		3d,
+		quotes,
+		angles,
+		babel
+	}
+
+\usepgfplotslibrary{units}
+
+% const прямым шрифтом
+\newcommand\ct[1]{\text{\rmfamily\upshape #1}}
+\newcommand*{\const}{\ct{const}}
+\renewcommand*{\epsilon}{\varepsilon}
+
+\usepackage[europeanresistors,americaninductors]{circuitikz}
+
+% Style to select only points from #1 to #2 (inclusive)
+\pgfplotsset{select/.style 2 args={
+    x filter/.code={
+        \ifnum\coordindex<#1\def\pgfmathresult{}\fi
+        \ifnum\coordindex>#2\def\pgfmathresult{}\fi
+    }
+}}
+
+\usepackage{array}
+\usepackage{pstool}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newif\if@gather@prefix 
+\preto\place@tag@gather{% 
+  \if@gather@prefix\iftagsleft@ 
+    \kern-\gdisplaywidth@ 
+    \rlap{\gather@prefix}% 
+    \kern\gdisplaywidth@ 
+  \fi\fi 
+} 
+\appto\place@tag@gather{% 
+  \if@gather@prefix\iftagsleft@\else 
+    \kern-\displaywidth 
+    \rlap{\gather@prefix}% 
+    \kern\displaywidth 
+  \fi\fi 
+  \global\@gather@prefixfalse 
+} 
+\preto\place@tag{% 
+  \if@gather@prefix\iftagsleft@ 
+    \kern-\gdisplaywidth@ 
+    \rlap{\gather@prefix}% 
+    \kern\displaywidth@ 
+  \fi\fi 
+} 
+\appto\place@tag{% 
+  \if@gather@prefix\iftagsleft@\else 
+    \kern-\displaywidth 
+    \rlap{\gather@prefix}% 
+    \kern\displaywidth 
+  \fi\fi 
+  \global\@gather@prefixfalse 
+} 
+\newcommand*{\beforetext}[1]{% 
+  \ifmeasuring@\else
+  \gdef\gather@prefix{#1}% 
+  \global\@gather@prefixtrue 
+  \fi
+} 
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\geometry		
+	{
+		left			=	2cm,
+		right 			=	2cm,
+		top 			=	3cm,
+		bottom 			=	3cm,
+		bindingoffset	=	0cm
+	}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	%применим колонтитул к стилю страницы
+\pagestyle{fancy} 
+	%очистим "шапку" страницы
+\fancyhead{} 
+	%слева сверху на четных и справа на нечетных
+\fancyhead[R]{\labauthors} 
+	%справа сверху на четных и слева на нечетных
+\fancyhead[L]{Отчёт по лабораторной работе №\labnumber} 
+	%очистим "подвал" страницы
+\fancyfoot{} 
+	% номер страницы в нижнем колинтуле в центре
+\fancyfoot[C]{\thepage} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\contentsname}{Оглавление}
+
+\usepackage{tocloft}
+% \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
+% \renewcommand{\cftsectiondotsep}{\cftdotsep}% Chapters should use dots in ToC
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % for sections, if you really want! (It is default in report and book class (So you may not need it).
+% ---------
+% \newcommand{\cftchapaftersnum}{.}%
+% \usepackage{titlesec}
+% \titlelabel{\thetitle.\quad}
+\usepackage{secdot}
+\sectiondot{subsection}
+\newcommand{\rot}{\operatorname{rot}}
