@@ -20,6 +20,7 @@ for excel_file in excel_files:
         signal2noise = sheet.col_values(1)[1:]  # dB
         correct_prob = sheet.col_values(2)[1:]
         incorrect_prob = sheet.col_values(3)[1:]
+        
         print("СКО:", current_sko)
         print("С/Ш:", signal2noise)
         print("P по:", correct_prob)
