@@ -148,7 +148,22 @@
 и конечной частотой ширина корреляционной функции увеличивается, ширина спектра уменьшается,
 а значение базы сигнала уменьшается.
 
-Увеличение ширины корреляционной функции объясняется \dots
+Очевидно, что при  изменении частотной полосы ЛЧМ-сигнала его спектр
+пропорционально увеличивается. Исследуемый сигнал является стационарным в
+широком смысле случайным процессом, а значит его спектр связан с корреляционной
+функцией обратным преобразованием Фурье
+
+\begin{equation}
+    K(\tau) = \int\limits_{-\infty}^{\infty} S(\omega) \exp{+j\omega\tau} \dd{\omega}
+\end{equation}
+
+А для пары преобразований Фурье мы можем написать соотношение неопределенности
+в виде:
+\begin{equation}
+    \Delta \tau  \Delta \omega \geq 2\pi, \text{ где}
+\end{equation} 
+
+$\Delta \omega$ -- характерная ширина спектра, $\Delta \tau$ -- характерное ширина корреляции.
 
 Уменьшенеие ширины спектра объясняется уменьшением количества частотных компонент, использованных 
 в сигнале. Таким образм, при устремлении разницы частот к нулю, вид спектра будет приближаться к $\delta$-функции.
@@ -159,6 +174,31 @@
 обнаружения от вероятности ложной тревоги для трех значений
 отношения сигнал/шум при известном сигнале. Сделать то же для сигнала
 со случайной фазой и случайной фазой и амплитудой. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width =0.5\linewidth]{data/data_determ.pdf}
+	\caption{}
+	\label{fig:1}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width =0.5\linewidth]{data/data_phase.pdf}
+	\caption{}
+	\label{fig:1}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width =0.5\linewidth]{data/data_amplitude.pdf}
+	\caption{}
+	\label{fig:1}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width =0.5\linewidth]{data/data_phase_amplitude.pdf}
+	\caption{}
+	\label{fig:1}
+\end{figure}
 
 \subsection{Задание 4}
 На графиках указать несколько одинаковых значений порога. Объяснить
