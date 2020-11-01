@@ -32,7 +32,7 @@
 
 Пороговое устройство фильтрует сигнал в зависимости от амплитуды выходного сигнала.
 
-устройство синхронизации запускает генерацию сигнала и интегрирование, а по
+Устройство синхронизации запускает генерацию сигнала и интегрирование, а по
 окончании этого процесса подключает к выходу интегратора пороговое
 устройство.
 
@@ -42,7 +42,7 @@
     P_\text{ПО} = F\left(\frac{\ln(l_0)}{d} - d/2\right), \quad
     P_\text{ЛТ} = 1 - F\left(\frac{\ln(l_0)}{d} + d/2\right),
 \end{equation}
-где $F(x) = \frac{1}{\sqrt{2\pi}}\int\limits_{-\infty}^{x}\exp(-y^2/2)\dd y$ - интеграл Лапласа, $d^2 = 2 E/N_0$ - отношение
+где $P_\text{ПО}$ - вероятность правильного обнаружения, $P_\text{ЛТ}$ - вероятность ложной тревоги, $F(x) = \frac{1}{\sqrt{2\pi}}\int\limits_{-\infty}^{x}\exp(-y^2/2)\dd y$ - интеграл Лапласа, $d^2 = 2 E/N_0$ - отношение
 энергии сигнала к спектральной плотности мощности (СПМ) шума. 
 
 При неизвестной фазе выражение для РХП имеет вид
@@ -94,7 +94,7 @@
 \subsection{Задание 2}
 Было проведено сравнение спектра и корреляционной функции ЛЧМ-сигнала для окна с
 плоской вершиной при различных значениях разности начальной чатсоты $f_{s}$ и
-конечной частот $f_{e}$. Полученные графики приведены на рис. \ref{fig:spec1}-\ref{fig:spec4}
+конечной частоты $f_{e}$. Полученные графики приведены на рис. \ref{fig:spec1}-\ref{fig:spec4}
 
 \begin{figure}[H]
     \centering
@@ -176,29 +176,27 @@ $\Delta \omega$ -- характерная ширина спектра, $\Delta \
 со случайной фазой и случайной фазой и амплитудой. 
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width =0.5\linewidth]{data/data_determ.pdf}
-	\caption{}
-	\label{fig:1}
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics[width=\linewidth]{data/data_determ.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\linewidth}
+        \includegraphics[width=\linewidth]{data/data_phase.pdf}
+    \end{subfigure}
 \end{figure}
+
 \begin{figure}[H]
-	\centering
-	\includegraphics[width =0.5\linewidth]{data/data_phase.pdf}
-	\caption{}
-	\label{fig:1}
+    \centering
+    \begin{subfigure}{0.49\linewidth}
+	    \includegraphics[width=\linewidth]{data/data_amplitude.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.49\linewidth}
+	    \includegraphics[width=\linewidth]{data/data_phase_amplitude.pdf}
+    \end{subfigure}
+    \caption{Графики зависимости РХП для различных сигналов и различных значений СКО.
+    Также на графике отмечены одинаковые значения порога: $\triangle - 3, \square - 10, \ocircle - 20$.}
 \end{figure}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width =0.5\linewidth]{data/data_amplitude.pdf}
-	\caption{}
-	\label{fig:1}
-\end{figure}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width =0.5\linewidth]{data/data_phase_amplitude.pdf}
-	\caption{}
-	\label{fig:1}
-\end{figure}
+
 
 \subsection{Задание 4}
 На графиках указать несколько одинаковых значений порога. Объяснить

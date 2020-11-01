@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 from numpy.random import uniform, normal
 
 
-labels = ["Детерм", "Случ. фаза", "Случ. амп", "Случ. фаза и амп"]
+labels = ["Детерминированный", "Случайная фаза",
+          "Случайная амплитуда", "Случайная фаза и амплитуда"]
 excel_files = ["data/data_" + name for name in [
     "determ",
     "phase",
@@ -45,16 +46,12 @@ for j, excel_file in enumerate(excel_files):
 
         P1, P2, sko = podgonian(P1, P2, sko)
 
-        ax.plot(P2, P1, "-", label="$\\text{СКО} = %.2f$" % sigma[i])
+        ax.plot(P2, P1, ".-", label="$\\text{СКО} = %.2f$" % sigma[i])
 
 
-        ax.plot(P2[2], P1[2], "ko")
-        ax.plot(P2[5], P1[5], "ks")
-        ax.plot(P2[7], P1[7], "k^")
-
-        # ax.plot(P2[2], P1[2], "go")
-        # ax.plot(P2[5], P1[5], "ro")
-        # ax.plot(P2[7], P1[7], "bo")
+        ax.plot(P2[2], P1[2], "o", color="darkblue", zorder=3)
+        ax.plot(P2[5], P1[5], "s", color="darkblue", zorder=3)
+        ax.plot(P2[7], P1[7], "^", color="darkblue", zorder=3)
 
         ax.set_title(labels[j])
         ax.set_ylabel("$P_{\\text{ПО}}$")
@@ -64,7 +61,7 @@ for j, excel_file in enumerate(excel_files):
         ax.minorticks_on()
         plt.legend()
 
-    plt.savefig('%s.png' % excel_file)
+    plt.savefig('%s.pdf' % excel_file)
 
 plt.show()
 
