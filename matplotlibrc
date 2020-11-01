@@ -2,7 +2,7 @@ axes.labelsize : 12
 legend.fontsize: 12
 figure.figsize: 3.6, 3.6
 font.family: serif
-text.usetex : False
+text.usetex : True
 text.latex.preamble : \usepackage[russian]{babel} \usepackage{amsmath,amssymb,mathrsfs,physics}
 
 #### MATPLOTLIBRC FORMAT
